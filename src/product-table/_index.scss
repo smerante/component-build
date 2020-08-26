@@ -1,4 +1,14 @@
 .filterable-product-table {
   display: block;
   position: relative;
+  padding: 8px;
+  border: 1px solid black;
+  width: 300px;
+  margin: 0 auto;
+  &--title {
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 24px;
+  }
 }

@@ -1,4 +1,9 @@
 .product-category-row {
-  display: block;
+  display: table-row;
   position: relative;
+  text-align: center;
+  font-weight: 700;
+  td {
+    padding-top: 16px;
+  }
 }

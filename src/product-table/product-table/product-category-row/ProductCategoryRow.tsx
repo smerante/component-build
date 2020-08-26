@@ -1,15 +1,13 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './_index.scss';
-class ProductCategoryRow extends React.Component {
-  // constructor(props: any) {
-  //   super(props);
-  // }
+import { Product } from '../ProductTable';
 
+class ProductCategoryRow extends Component<Product, any> {
   render() {
     return (
-      <div className={'product-category-row'}>
-        product-category-row
-      </div>
+      <tr key={this.props.category} className={'product-category-row'}>
+        <td colSpan={2}>{this.props.category}</td>
+      </tr>
     );
   }
 }

@@ -10,6 +10,7 @@ class FilterableProductTable extends React.Component {
   render() {
     return (
       <div className={'filterable-product-table'}>
+        <h1 className={'filterable-product-table--title'}>Filterable Product Table</h1>
         <SearchBar></SearchBar>
         <ProductTable></ProductTable>
       </div>
