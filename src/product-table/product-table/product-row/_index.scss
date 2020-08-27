@@ -2,4 +2,7 @@
   display: table-row;
   position: relative;
   padding: 4px;
+  &--no-stock {
+    color: red;
+  }
 }

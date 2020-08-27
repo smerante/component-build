@@ -2,6 +2,7 @@ import React from 'react';
 import './_index.scss';
 import ProductCategoryRow from './product-category-row/ProductCategoryRow';
 import ProductRow from './product-row/ProductRow';
+import { ProductTableState } from '../FilterableProductTable';
 
 export interface Product {
   category: string;
@@ -10,7 +11,7 @@ export interface Product {
   name: string;
 }
 
-class ProductTable extends React.Component {
+class ProductTable extends React.Component<ProductTableState, any> {
   // constructor(props: any) {
   //   super(props);
   // }
@@ -25,21 +26,25 @@ class ProductTable extends React.Component {
 
 
   render() {
-
     let lastCategory = '';
     const rows: any[] = [];
     this.products.forEach((product: Product) => {
+      const inStock = this.props.inStock ? product.stocked : true;
       if (product.category === lastCategory) {
-        rows.push(
-          <ProductRow key={product.name} {...product}/>
-        )
+        if (inStock && product.name.toLowerCase().includes(this.props.searchText.toLowerCase())) {
+          rows.push(
+            <ProductRow key={product.name} {...product} />
+          )
+        }
       } else {
         rows.push(
           <ProductCategoryRow key={product.category} {...product} />
         );
-        rows.push(
-          <ProductRow key={product.name} {...product}/>
-        )
+        if (inStock && product.name.toLowerCase().includes(this.props.searchText.toLowerCase())) {
+          rows.push(
+            <ProductRow key={product.name} {...product} />
+          )
+        }
         lastCategory = product.category;
       }
     });

@@ -8,7 +8,7 @@ class ProductRow extends React.Component<Product, any> {
 
   render() {
     return (
-      <tr key={this.props.name} className={'product-row'}>
+      <tr key={this.props.name} className={`product-row ${this.props.stocked ? '' : 'product-row--no-stock'}`}>
         <td>
           {this.props.name}
         </td>
