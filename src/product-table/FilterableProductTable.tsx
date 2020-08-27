@@ -2,6 +2,7 @@ import React from 'react';
 import './_index.scss';
 import SearchBar from './search-bar/SearchBar';
 import ProductTable from './product-table/ProductTable';
+import { MyContext } from '../MyContext';
 
 export interface ProductTableState {
   searchText: string;
@@ -9,6 +10,9 @@ export interface ProductTableState {
 }
 
 class FilterableProductTable extends React.Component<any, ProductTableState> {
+
+  static contextType = MyContext;
+
   constructor(props: any) {
     super(props);
     this.state = {
@@ -17,6 +21,10 @@ class FilterableProductTable extends React.Component<any, ProductTableState> {
     };
     this.onSearch = this.onSearch.bind(this);
     this.onCheck = this.onCheck.bind(this);
+  }
+
+  componentDidMount() {
+    console.warn('recieved context: ', this.context);
   }
 
   onSearch(src: string) {
@@ -30,6 +38,7 @@ class FilterableProductTable extends React.Component<any, ProductTableState> {
       inStock: src
     });
   }
+
 
   render() {
     return (
