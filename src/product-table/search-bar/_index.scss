@@ -8,5 +8,10 @@
   }
   &--checkbox {
     margin-top: 8px;
+
+    input,
+    label {
+      cursor: pointer;
+    }
   }
 }

@@ -37,10 +37,10 @@ class ProductTable extends React.Component<ProductTableState, any> {
           )
         }
       } else {
-        rows.push(
-          <ProductCategoryRow key={product.category} {...product} />
-        );
         if (inStock && product.name.toLowerCase().includes(this.props.searchText.toLowerCase())) {
+          rows.push(
+            <ProductCategoryRow key={product.category} {...product} />
+          );
           rows.push(
             <ProductRow key={product.name} {...product} />
           )
